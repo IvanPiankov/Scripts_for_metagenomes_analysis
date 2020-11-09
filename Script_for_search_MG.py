@@ -28,16 +28,16 @@ def get_assemblies(searched_word, db = "assembly", download = False , habitats =
                 downloded_metagenomes[name].append(url)
         count_start = sum(metagenomes.values())
     # It doesn't work, and i don't know why, but i try to fix this part of code.
-    if download == True:
-        if habitats == "all":
-            for el in downloded_metagenomes:
-                handle = Entrez.efetch(db=db, id=",".join(downloded_metagenomes.get(el)), rettype="fasta")
-        else:
-            handle = Entrez.efetch(db=db, id=",".join(downloded_metagenomes.get(habitats)), rettype="fasta", retmode="text")
+    #if download == True:
+        #if habitats == "all":
+            #for el in downloded_metagenomes:
+                #handle = Entrez.efetch(db=db, id=",".join(downloded_metagenomes.get(el)), rettype="fasta")
+        #else:
+            #handle = Entrez.efetch(db=db, id=",".join(downloded_metagenomes.get(habitats)), rettype="fasta", retmode="text")
     head = ["Count"]
     df = pd.DataFrame.from_dict(metagenomes, orient="index")
     df.to_csv('List_of_metagenoms.csv', header=head)
     return df
 
-print(get_assemblies("metagenomes", retmax= 10, download=True, habitats="sponge metagenome"))
+print(get_assemblies("metagenomes", retmax= 10))
 

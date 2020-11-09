@@ -2,7 +2,7 @@ from Bio import Entrez
 import csv
 import pandas as pd
 
-Entrez.email = 'vanypyankov@mail.ru'
+Entrez.email = 'vanypyankov1@mail.ru'
 
 def get_assemblies(searched_word, db = "assembly", download = False , habitats = "all", retmax = 1):
     handle = Entrez.esearch(db=db, term=searched_word, retmax=retmax)
